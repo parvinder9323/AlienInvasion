@@ -1,11 +1,7 @@
 import sys
-
 import pygame
-
 from settings import Settings
-
 from ship import Ship
-
 
 class AlienInvasion:
     """Overall class to manage game assets and behavior."""
@@ -15,12 +11,9 @@ class AlienInvasion:
         pygame.init()
         self.clock = pygame.time.Clock()
         self.settings = Settings()
-
         self.screen = pygame.display.set_mode((self.settings.screen_width, self.settings.screen_height))
-
         pygame.display.set_caption("Alien Invasion")
         self.ship = Ship(self)
-
         # Set the background color.
         self.bg_color = (240, 240, 230)
 
@@ -40,10 +33,9 @@ class AlienInvasion:
             elif event.type == pygame.KEYDOWN:
                 self._check_keydown_event(event)
             elif event.type == pygame.KEYUP:
-                self._check_keyup_event(event)
-
-                # Move Ship to the right
-                self.ship.rect.x += 1
+                self._check_keyup_event(event)  # corrected indentation of this line
+        # Move Ship to the right
+        self.ship.rect.x += 1  # moved this line out of the for loop
 
     def _check_keydown_event(self, event):
         if event.key == pygame.K_RIGHT:
@@ -61,10 +53,8 @@ class AlienInvasion:
         # Redraw the screen during each pass through the loop.
         self.screen.fill(self.settings.bg_color)
         self.ship.blitme()
-
         # Make the most recently drawn screen
         pygame.display.flip()
-
 
 if __name__ == '__main__':
     # Make the game Instance and Run the game.
