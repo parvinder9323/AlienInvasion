@@ -104,6 +104,16 @@ vi /etc/wts_bss_info_config
 
  cat /proc/tc3162/eth_port_status
  
+ ---------------------------------------------------------------------------------------------------------------------------------------
+ 
+Enable sniffer to capture Dying Gasp packets:
+sys memwl 1fb66400 80080000
+
+For example, we use software to send 3 dying gasp messages and capture them:
+sys memwl 1fb66400 80080000     // enable sniffer
+sys memwl 1fb662ac 10300            // software send dying gasp num[3]
+sys memwl 1fb66400 0                    // disable sniffer
+
  cat /userfs/profile.cfg |Ether
  # cat /userfs/profile.cfg |grep ETHER
 WAN_ETHER=y
