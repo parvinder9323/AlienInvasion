@@ -114,6 +114,16 @@ sys memwl 1fb66400 80080000     // enable sniffer
 sys memwl 1fb662ac 10300            // software send dying gasp num[3]
 sys memwl 1fb66400 0                    // disable sniffer
 
+
+---------------------------------------------------------------------------------------------------------------------------------------\
+Command to Change the serial number 
+
+prolinecmd xponsn set ECNT00067112
+tcapi set GPON_ONU SerialNumber ECNT00067112
+tcapi save
+reboot
+------------------------------------------------------------------------------------------------------------------------------------------\
+
  cat /userfs/profile.cfg |Ether
  # cat /userfs/profile.cfg |grep ETHER
 WAN_ETHER=y
