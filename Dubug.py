@@ -135,3 +135,16 @@ TCSUPPORT_WAN_ETHER=y
 # TCSUPPORT_ETHER_ALL_LED is not set
 # TCSUPPORT_WAN_ETHER_LED is not set
 # TCSUPPORT_MANUAL_ETHERNET_PORTMAP is not set
+
+--------------------------------------------------------------------------------------------------------------------------------------------\
+
+IGMP Proxy 
+
+To check IGMP Proxy and snooping support in EN7529
+
+echo quickleave > /etc/igmpproxy.conf
+echo phyint br-lan downstream ratelimit 0 threshold 1 >> /etc/igmpproxy.conf
+echo phyint pon.323 upstream ratelimit 0 threshold 1 >> /etc/igmpproxy.conf
+igmpproxy  /etc/igmpproxy.conf -d &
+
+---------------------------------------------------------------------------------------------------------------------------------------------\
