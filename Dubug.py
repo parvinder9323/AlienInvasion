@@ -148,3 +148,11 @@ echo phyint pon.323 upstream ratelimit 0 threshold 1 >> /etc/igmpproxy.conf
 igmpproxy  /etc/igmpproxy.conf -d &
 
 ---------------------------------------------------------------------------------------------------------------------------------------------\
+
+Show TR069 config:
+
+tcapi show cwmp
+Wan2lan wireshark capture wan side packets to lan ports:
+sys wan2lan on
+Enable TR069 serial log :
+tcapi set Cwmp_Entry dbgflag 3
